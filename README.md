@@ -1,5 +1,7 @@
 # kink.rb
 
+[![Gem Version](https://badge.fury.io/rb/kink.svg)](https://badge.fury.io/rb/kink)
+
 `kink` is an alternative `loop` that only repeats when you tell it to with `redo`:
 
 ```
@@ -21,8 +23,9 @@ otherwise, a `kink` will end on its own, with no need for a `break` statement:
 
 ```
 kink do
-  print "This message only prints once."
+  print "This message only prints once: "
 end
+puts "as promised."
 ```
 
 a `kink` can still use both `break` and `next` statements. either can end the loop, and either can an accept arguments that supply the result of the block. if `next` accepts a single argument returned by `kink_next()`, the `kink` repeats:
