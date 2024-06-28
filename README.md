@@ -10,7 +10,7 @@ kink do
   print "Input: "
   line = gets
   if !line or line =~ /^.*\D.*$/i
-    puts "Please enter a base 10 number with no spaces or separators."
+    puts "Please enter a base 10 number with no separators or spaces."
     redo
   end
   # ...
