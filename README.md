@@ -11,7 +11,7 @@ include Kink
 kink do
   print "Input: "
   line = gets
-  if !line or line =~ /^.*\D.*$/i
+  if !line or line !~ /^\d+\n?$/
     puts "Please enter a base 10 number with no separators or spaces."
     redo
   end
