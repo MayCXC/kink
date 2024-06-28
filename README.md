@@ -15,6 +15,7 @@ kink do
     puts "Please enter a base 10 number with no separators or spaces."
     redo
   end
+  puts "Got input: #{line}"
   # ...
 end
 ```
