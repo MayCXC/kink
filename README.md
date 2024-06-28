@@ -90,4 +90,4 @@ d(5) = 0
 d(5) < 1
 ```
 
-this provides a unified syntax to mix and match `for`, `while`, `do while`, and `until` semantics all day long, in a way that still feels familiar to the `loop` connoisseur. it also implements optimized tail recursion directly, where `next kink_next(*args)` has the same semantics as a tail call. now go work out some kinks :^)
+this provides a unified syntax to mix and match `for`, `while`, `do while`, and `until` semantics all day long, in a way that still feels familiar to the `loop` connoisseur. it also implements optimized tail recursion directly, where `next kink_next(*args)` has the same semantics as an optimized tail call. now go work out some kinks :^)
