@@ -1,5 +1,7 @@
 # kink.rb
 
+[![Gem Version](https://badge.fury.io/rb/kink.svg)](https://badge.fury.io/rb/kink)
+
 `kink` is an alternative `loop` that only repeats when you tell it to with `redo`:
 
 ```
