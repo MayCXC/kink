@@ -57,7 +57,7 @@ i is not 3
 broken
 ```
 
-arguments can also be supplied to `kink(*args)`, where they are then passed through `do |*args|`, and resupplied by `next kink_next(*args)`:
+arguments can also be supplied to `kink(*args)`, where they are passed through `do |*args|`, and resupplied by `next kink_next(*args)`:
 
 ```
 c=kink(-3,0,12,0) do |x,y,z,t|
