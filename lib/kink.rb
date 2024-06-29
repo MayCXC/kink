@@ -5,7 +5,7 @@ module Kink
   module_function
 
   def kink_next(*args)
-    NextArgs.[](*args)
+    NextArgs[*args]
   end
 
   def kink(*y)
