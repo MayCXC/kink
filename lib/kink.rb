@@ -14,15 +14,11 @@ module Kink
     end
 
     begin
-      v = y
-      while true
-        v = yield(*v)
-        break v unless v.is_a? NextArgs
-        next unless v.length > 0
-        h,*t = v
-        next h unless v.length > 1
-        next h,*t
+      v = NextArgs[*y]
+      while v.is_a? NextArgs
+        v = yield *v
       end
+      v
     rescue StopIteration => e
       e.result
     end
