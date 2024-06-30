@@ -121,4 +121,4 @@ z.lazy.take_while{|x| (x > 1).tap{|p| puts "#{x} is #{p ? "greater than" : "equa
 [5, 16, 8, 4, 2]
 ```
 
-this provides a unified syntax to mix and match `for`, `while`, `do while`, and `until` semantics all day long, in a way that still feels familiar to the `loop` connoisseur. and like `Enumerator.produce`, both methods implement a control structure similar to optimized tail recursion directly, where `next kink_next(*args)` has the same semantics as an optimized tail call. now go work out some kinks :^)
+this provides a unified syntax to mix and match `for`, `while`, `do while`, and `until` semantics all day long, in a way that still feels familiar to the `loop` connoisseur. like `Enumerator.produce`, both methods implement a control structure similar to optimized tail recursion directly, where `next kink_next(*args)` has the same semantics as an optimized tail call. now go work out some kinks :^)
