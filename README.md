@@ -66,9 +66,9 @@ arguments can also be supplied to `kink(*args)`, where they are passed through `
 ```ruby
 c=kink(-3,0,12,0) do |x,y,z,t|
         puts "(x,y,z)(#{t}) = (#{x},#{y},#{z})"
-        d=(x-y)**2 + (y-z)**2 + (z-x)**2
+        d=(x-y).abs2 + (y-z).abs2 + (z-x).abs2
         puts "d(#{t}) = #{d}"
-        next kink_next((y+z)/2, (x+z)/2, (x+y)/2, t+1) unless d<1
+        next kink_next((y+z)/2, (x+z)/2, (x+y)/2, t.succ) unless d<1
         "d(#{t}) < 1"
 end
 puts c
