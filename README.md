@@ -4,7 +4,7 @@
 
 `kink` is an alternative `loop` that only repeats when you tell it to with `redo`:
 
-```
+```ruby
 require "kink"
 include Kink
 
@@ -22,7 +22,7 @@ end
 
 otherwise, a `kink` will end on its own, with no need for a `break` statement:
 
-```
+```ruby
 kink do
   print "This message only prints once: "
 end
@@ -31,7 +31,7 @@ puts "as promised."
 
 a `kink` can still use both `break` and `next` statements. either can end the loop, and either can an accept arguments that supply the result of the block. if `next` accepts a single argument returned by `kink_next()`, the `kink` repeats:
 
-```
+```ruby
 i=0
 puts i
 
@@ -63,7 +63,7 @@ broken
 
 arguments can also be supplied to `kink(*args)`, where they are passed through `do |*args|`, and resupplied by `next kink_next(*args)`:
 
-```
+```ruby
 c=kink(-3,0,12,0) do |x,y,z,t|
         puts "(x,y,z)(#{t}) = (#{x},#{y},#{z})"
         d=(x-y)**2 + (y-z)**2 + (z-x)**2
@@ -90,4 +90,35 @@ d(5) = 0
 d(5) < 1
 ```
 
-this provides a unified syntax to mix and match `for`, `while`, `do while`, and `until` semantics all day long, in a way that still feels familiar to the `loop` connoisseur. it also implements optimized tail recursion directly, where `next kink_next(*args)` has the same semantics as an optimized tail call. now go work out some kinks :^)
+a method similar to `Enumerator.produce` is also provided by the name of `kink_produce`:
+
+```ruby
+z=kink_produce(5) do |x|
+  if x.even?
+    puts "#{x} is even"
+    kink_next(x/2)
+  else
+    puts "#{x} is odd"
+    kink_next(3*x + 1)
+  end
+end
+
+z.lazy.take_while{|x| (x > 1).tap{|p| puts "#{x} is #{p ? "greater than" : "equal to"} one"}}.first(1000000).then{|xxx| puts xxx.inspect}
+```
+
+```
+5 is greater than one
+5 is odd
+16 is greater than one
+16 is even
+8 is greater than one
+8 is even
+4 is greater than one
+4 is even
+2 is greater than one
+2 is even
+1 is equal to one
+[5, 16, 8, 4, 2]
+```
+
+this provides a unified syntax to mix and match `for`, `while`, `do while`, and `until` semantics all day long, in a way that still feels familiar to the `loop` connoisseur. and like `Enumerator.produce`, both methods implement a control structure similar to optimized tail recursion directly, where `next kink_next(*args)` has the same semantics as an optimized tail call. now go work out some kinks :^)
