@@ -103,7 +103,9 @@ z=kink_produce(5) do |x|
   end
 end
 
-z.lazy.take_while{|x| (x > 1).tap{|p| puts "#{x} is #{p ? "greater than" : "equal to"} one"}}
+z.lazy.take_while{|x| (x > 1).tap{ |p|
+    puts "#{x} is #{p ? "greater than" : "equal to"} one"}
+  }
   .first(1000000)
   .then{|xxx| puts xxx.inspect}
 ```
