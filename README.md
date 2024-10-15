@@ -29,7 +29,7 @@ end
 puts "as promised."
 ```
 
-a `kink` can still use both `break` and `next` statements. either can end the loop, and either can an accept arguments that supply the result of the block. if `next` accepts a single argument returned by `kink_next()`, the `kink` repeats:
+a `kink` can still use both `break` and `next` statements. either can end the loop, and either can accept arguments that supply the result of the block. if `next` accepts a single argument returned by `kink_next()`, the `kink` repeats:
 
 ```ruby
 i=0
@@ -61,7 +61,7 @@ i is not 3
 broken
 ```
 
-arguments can also be supplied to `kink(*args)`, where they are passed through `do |*args|`, and resupplied by `next kink_next(*args)`:
+arguments also may be supplied to `kink(*args)`, where they are passed through `do |*args|`, and resupplied by `next kink_next(*args)`:
 
 ```ruby
 c=kink(-3,0,12,0) do |x,y,z,t|
